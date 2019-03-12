@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 //更新履歴
 // ver     内容
 // 1.0　　マウスクリックでブロックを移動させる
+// 1.1    マウス右クリックでブロックを90度回転させる
 
 //  >> Update Start ver1.0
 public class move_blocks : MonoBehaviour
@@ -21,6 +22,13 @@ public class move_blocks : MonoBehaviour
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(cursorPos.x, cursorPos.y);
+//  >> Update Start ver1.1
+            //右クリックがされた場合、画像を90度回転させる
+        if (Input.GetMouseButtonDown(1))
+            {
+                　transform.Rotate(new Vector3(0, 0, 90));
+            }
+ // << Update End   ver1.1
         }
 
         //クリックされていない場合、座標の更新を行わない
